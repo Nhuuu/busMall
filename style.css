@@ -58,7 +58,6 @@ nav > ul > li:first-child, nav > ul > li:nth-child(2) {
 nav > ul > li {
   float: right;
   padding: 20px;
-  /* border: solid black 1px; */
   line-height: 10px;
 }
 
