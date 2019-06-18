@@ -100,19 +100,7 @@ aside > div {
   height: 250px;
 }
 
-#vote {
-  text-align: center;
-  padding: 15px;
-  background-color: brown;
-  height: 50px;
-}
-
-section > button {
-  width: 70%;
-  padding: 4px;
-  border-radius: 3px;
-}
-
-section > p {
-  padding: 10px;
+section#canvas {
+  width: 350px;
+  margin: auto;
 }
