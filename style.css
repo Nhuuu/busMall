@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  height: 80px;
+  width: 100%;
+  position: relative;
+  background-color: green;
+}
+
+main, aside {
+  height: 600px;
+}
+
+aside {
+  width: 20%;
+  background-color: yellow;
+  position: relative;
+}
+
+main {
+  width: 80%;
+  float: right;
+}
+
+footer {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 0;
+  background-color: orange;
+}
+
+/* Nav Styles */
+nav {
+  height: 100%;
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+  background-color: aqua;
+}
+
+nav > ul {
+  overflow: auto;
+  margin: 0;
+}
+
+nav > ul > li {
+  list-style-type: none;
+  display: inline;
+}
+
+nav > ul > li:first-child, nav > ul > li:nth-child(2) {
+  float: left;
+}
+
+
+nav > ul > li {
+  float: right;
+  padding: 20px;
+  /* border: solid black 1px; */
+  line-height: 10px;
+}
+
+
+/* Aside styles */
+aside > h2 {
+  margin: 0 auto;
+}
+
+aside > div {
+  border: solid black 1px;
+  margin: 10px;
+  position: absolute;
+  width: 90%;
+  height: 580px;
+  padding: 10px;
+}
+
+aside > div > ul > li {
+  list-style-type: none;
+}
+
+/* Main styles */
+#images > ul {
+  overflow: auto;
+  background-color: azure;
+  margin: 0 auto;
+  padding: 0;
+
+}
+
+#images > ul > li {
+  width: 33.33%;
+  text-align: center;
+  float: left;
+  list-style-type: none;
+  height: 280px;
+}
+
+#images > ul > li > img {
+  padding: 10px;
+  margin: 0 auto;
+  width: 100%;
+  height: 250px;
+}
+
+#vote {
+  text-align: center;
+  padding: 15px;
+  background-color: brown;
+  height: 50px;
+}
+
+section > button {
+  width: 70%;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+section > p {
+  padding: 10px;
+}
+
+/* footer styles */
