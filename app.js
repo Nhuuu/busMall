@@ -12,7 +12,7 @@ var leftImage = document.getElementById('left_image');
 var middleImage = document.getElementById('middle_image');
 var rightImage = document.getElementById('right_image');
 
-var totalClicks = 25;
+var totalClicks = 0;
 
 var leftProductOnPage = null;
 var middleProductOnPage = null;
@@ -53,11 +53,20 @@ new ProductImage('water-can', './img/water-can.jpg');
 new ProductImage('wine-glass', './img/wine-glass.jpg');
 
 
+var leftProductOnPage = null;
+var middleProductOnPage = null;
+var rightProductOnPage = null;
+
+
 var renderProductImages = function(leftIndex, middleIndex, rightIndex){
   leftImage.src = ProductImage.allImages[leftIndex].url;
   middleImage.src = ProductImage.allImages[middleIndex].url;
   rightImage.src = ProductImage.allImages[rightIndex].url;
 };
+
+
+// nor images that we displayed immediately before.
+
 
 var displayProductImages = function(){
   var leftIndex = Math.round(Math.random() * ProductImage.allImages.length);
@@ -69,7 +78,7 @@ var displayProductImages = function(){
   do {
     var rightIndex = Math.round(Math.random() * ProductImage.allImages.length);
   } while (rightIndex === middleIndex || rightIndex === leftIndex);
-  console.log(ProductImage.allImages[leftIndex].name, ProductImage.allImages[middleIndex].name,ProductImage.allImages[rightIndex].name);
+
   leftProductOnPage = ProductImage.allImages[leftIndex];
   middleProductOnPage = ProductImage.allImages[middleIndex];
   rightProductOnPage = ProductImage.allImages[rightIndex];
@@ -78,12 +87,6 @@ var displayProductImages = function(){
 };
 
 
-// - Track those clicks for each image. 
-// - Track how many times each image is displayed, for statistical purposes.
-
-// Upon receiving a click, three new non-duplicating random images need to be displayed. 
-//   - no duplicates
-//   - nor images that we displayed immediately before.
 
 
 var handleClicks = function(e){
@@ -104,13 +107,16 @@ var handleClicks = function(e){
       middleProductOnPage.timesShown++;
       rightProductOnPage.timesShown++;
     }
-    console.log(e.target.id);
-  };
+  }
+  console.log('left', leftProductOnPage.name);
+  console.log('middle', middleProductOnPage.name);
+  console.log('right', rightProductOnPage.name);
+
   totalClicks++;
-  console.log(totalClicks);
   if(totalClicks === 25){
     imageSection.removeEventListener('click', handleClicks);
   }
+  displayProductImages();
 };
 
 imageSection.addEventListener('click', handleClicks);

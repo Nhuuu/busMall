@@ -76,9 +76,9 @@ aside > div {
   padding: 10px;
 }
 
-aside > div > ul > li {
+/* aside > div > ul > li {
   list-style-type: none;
-}
+} */
 
 /* Main styles */
 #images > ul {
