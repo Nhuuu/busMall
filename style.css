@@ -10,7 +10,7 @@ header {
 }
 
 main, aside {
-  height: 600px;
+  height: 900px;
 }
 
 aside {
@@ -68,7 +68,6 @@ aside > h2 {
 }
 
 aside > div {
-  border: solid black 1px;
   margin: 10px;
   position: absolute;
   width: 90%;
@@ -101,6 +100,6 @@ aside > div {
 }
 
 section#canvas {
-  width: 350px;
+  width: 550px;
   margin: auto;
 }
