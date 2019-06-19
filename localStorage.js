@@ -1,25 +1,21 @@
 'use strict';
 
-/*
-  Save totalClicks
-  Save each items clicks
-  Save percentages
-  Save all objects
-*/
-
-
-// var saveClickCount = clickCount;
-// var saveMaxClicks = maxClicks;
-// var savePercentages = percents;
-// var saveProducts = JSON.stringify(ProductImage.allImages);
+var savedPercents = JSON.parse(localStorage.getItem('savedClicks'));
 
 
 
-// localStorage.setItem('saveProducts', saveProducts);
+
+// var saveClickCount = JSON.stringify(clickCount);
+// var savePercentages = JSON.stringify(percents);
+// var saveProductNames = JSON.stringify(productNames);
+
+
+
 // localStorage.setItem('saveClickCount', saveClickCount);
-// localStorage.setItem('saveMaxClicks', saveMaxClicks);
 // localStorage.setItem('savePercentages', savePercentages);
+// localStorage.setItem('saveProducts', saveProductNames);
 
-// var allSavedProducts = JSON.parse(localStorage.getItem('saveProducts'));
+// var getProductNames = JSON.parse(localStorage.getItem('saveProductNames'));
+// var getClickCount = JSON.parse(localStorage.getItem('saveClickCount'));
+// var getPercentages = JSON.parse(localStorage.getItem('savePercentages'));
 
-// use JSON parsed objects in the chart.

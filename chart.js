@@ -3,17 +3,20 @@
 var busChartCanvas = document.getElementById('busResults');
 
 function makeBusChart(){
+  var percents = [];
+  var productNames = [];
   for(var i = 0; i < ProductImage.allImages.length; i++){
     var p = Math.floor((ProductImage.allImages[i].clicks / ProductImage.allImages[i].timesShown) * 100);
     productNames.push(ProductImage.allImages[i].name);
     percents.push(p);
   }
+  localStorage.setItem('savedClicks', JSON.stringify(percents));
 
   var chartData = {
     labels: productNames,
     datasets: [{
       label: '% of Clicks per Times Shown',
-      data: percents,
+      data: savedPercents,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',

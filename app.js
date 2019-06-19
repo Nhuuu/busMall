@@ -8,8 +8,7 @@ var rightImage = document.getElementById('right_image');
 
 var clickCount = 0;
 var maxClicks = 25;
-var percents = [];
-var productNames = [];
+
 
 var ProductImage = function(name, imgSrc){
   this.name = name;
