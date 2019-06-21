@@ -8,6 +8,10 @@ var rightImage = document.getElementById('right_image');
 
 var clickCount = 0;
 var maxClicks = 25;
+var productNames = [];
+var percents = [];
+var productClicks = [];
+var productTimesShown = [];
 
 
 var ProductImage = function(name, imgSrc){
@@ -89,6 +93,7 @@ var handleClicks = function(e){
   } else if(clickCount === maxClicks) {
     makeBusChart();
   } else {
+    saveToLocalStorage()
     renderProductImages();
   }
   for(i = 0; i < ProductImage.allImages.length; i++){
@@ -105,3 +110,5 @@ var initPage = function(){
 };
 
 initPage();
+
+

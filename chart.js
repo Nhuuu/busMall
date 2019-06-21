@@ -1,22 +1,18 @@
 'use strict';
 
 var busChartCanvas = document.getElementById('busResults');
+var myChart = null;
 
 function makeBusChart(){
-  var percents = [];
-  var productNames = [];
-  for(var i = 0; i < ProductImage.allImages.length; i++){
-    var p = Math.floor((ProductImage.allImages[i].clicks / ProductImage.allImages[i].timesShown) * 100);
-    productNames.push(ProductImage.allImages[i].name);
-    percents.push(p);
-  }
-  localStorage.setItem('savedClicks', JSON.stringify(percents));
+  var getProductNames = JSON.parse(localStorage.getItem('productNames'));
+  var getPercents = JSON.parse(localStorage.getItem('percents'));
+
 
   var chartData = {
-    labels: productNames,
+    labels: getProductNames,
     datasets: [{
       label: '% of Clicks per Times Shown',
-      data: savedPercents,
+      data: getPercents,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -78,7 +74,10 @@ function makeBusChart(){
       }
     }
   };
-  new Chart(busChartCanvas, busChartObject);
+  if(myChart){
+    myChart.data.datasets.data[0].data = getPercents;
+    myChart.update();
+  } else {
+    myChart = new Chart(busChartCanvas, busChartObject);
+  }
 }
-
-
