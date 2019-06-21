@@ -3,11 +3,6 @@
 
 function saveToLocalStorage() {
 
-  var productNames = [];
-  var percents = [];
-  var productClicks = [];
-  var productTimesShown = [];
-
   for(var i = 0; i < ProductImage.allImages.length; i++){
     var p = Math.floor((ProductImage.allImages[i].clicks / ProductImage.allImages[i].timesShown) * 100);
     productNames.push(ProductImage.allImages[i].name);
