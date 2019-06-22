@@ -3,8 +3,11 @@
 
 function saveToLocalStorage() {
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f8787606cecf21021a843d8187cc2a085eefcc20
   for(var i = 0; i < ProductImage.allImages.length; i++){
     var p = Math.floor((ProductImage.allImages[i].clicks / ProductImage.allImages[i].timesShown) * 100);
     productNames.push(ProductImage.allImages[i].name);
