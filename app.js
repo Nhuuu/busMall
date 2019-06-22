@@ -8,10 +8,7 @@ var rightImage = document.getElementById('right_image');
 
 var clickCount = 0;
 var maxClicks = 25;
-var productNames = [];
-var percents = [];
-var productClicks = [];
-var productTimesShown = [];
+
 
 
 var ProductImage = function(name, imgSrc){
@@ -75,6 +72,7 @@ var renderProductImages = function(){
 
 var handleClicks = function(e){
   clickCount++;
+  saveToLocalStorage()
   if(e.target.id === 'left_image'){
     ProductImage.previousImages[0].clicks++;
 
@@ -92,10 +90,8 @@ var handleClicks = function(e){
     renderProductImages();
   } else if(clickCount === maxClicks) {
     makeBusChart();
-  } else {
-    saveToLocalStorage()
-    renderProductImages();
-  }
+    imageSection.removeEventListener('click', handleClicks);
+  } 
   for(i = 0; i < ProductImage.allImages.length; i++){
     var liEl = document.getElementById(ProductImage.allImages[i].name);
     liEl.textContent = ProductImage.allImages[i].clicks + ' for the ' + ProductImage.allImages[i].name;
@@ -112,3 +108,22 @@ var initPage = function(){
 initPage();
 
 
+function saveToLocalStorage() {
+  var productNames = [];
+  var percents = [];
+  var productClicks = [];
+  var productTimesShown = [];
+
+  for(var i = 0; i < ProductImage.allImages.length; i++){
+    var p = Math.floor((ProductImage.allImages[i].clicks / ProductImage.allImages[i].timesShown) * 100);
+    productNames.push(ProductImage.allImages[i].name);
+    percents.push(p);
+    productClicks.push(ProductImage.allImages[i].clicks);
+    productTimesShown.push(ProductImage.allImages[i].timesShown);
+
+  }
+  localStorage.setItem('percents', JSON.stringify(percents));
+  localStorage.setItem('productNames', JSON.stringify(productNames));
+  localStorage.setItem('productClicks', JSON.stringify(productClicks));
+  localStorage.setItem('productTimesShown', JSON.stringify(productTimesShown));
+}
